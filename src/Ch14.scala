@@ -4,7 +4,7 @@
 object Ch14 {
 
   /**
-    * Exercises 2
+    * Exercise 2
     *
     * @param pair
     * @return
@@ -13,13 +13,30 @@ object Ch14 {
     case (x, y) => (y, x)
   }
 
+  /**
+    * Exercise 3
+    * @param array
+    * @return
+    */
+  def swap(array: Array[Int]): Array[Int] = array match {
+    case Array(x, y, other @ _*) => Array(y, x) ++ other
+    case _ => array
+  }
+
   def main(args: Array[String]) {
 
-    // Exercises 2.
+    println("### Exercises 2 ###")
     val x = (10, 100)
     val y = swap(x)
     println(x)
     println(y)
+
+    println("\n### Exercises 3 ###")
+    val a = Array(1, 2, 3, 4, 5)
+    val b = swap(a)
+    println(a.mkString(" "))
+    println(b.mkString(" "))
+
   }
 
 }
