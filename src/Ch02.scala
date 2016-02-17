@@ -15,6 +15,11 @@ object Ch02 {
     else 0
   }
 
+  /**
+    * ### Exercise 5 ###
+    *
+    * @param n
+    */
   @annotation.tailrec
   def countdown(n: Int): Unit = {
     if (n >= 0) {
@@ -23,6 +28,19 @@ object Ch02 {
     } else {}
   }
 
+  /**
+    * ### Exercise 6 ###
+    *
+    * @param str
+    * @return
+    */
+  def stringToUnicode(str: String): String = {
+    var result: Long = 1
+    for (i <- str) {
+      result *= i.toLong
+    }
+    result.toString ++ "L"
+  }
 
   def main(args: Array[String]) {
 
@@ -31,13 +49,17 @@ object Ch02 {
     println(signum(-99))
     println(signum(100))
 
-    println("\n### Exercise 2 ###")
+    println("\n### Exercise 4 ###")
     for (i <- 10 to 0 by -1) {
       println(i)
     }
 
-    println("\n### Exercise 3 ###")
+    println("\n### Exercise 5 ###")
     countdown(11)
+
+    println("\n### Exercise 6 ###")
+    println(stringToUnicode("Hello"))
+
   }
 
 }
