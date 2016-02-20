@@ -32,7 +32,13 @@ object Ch12 {
     * @param n
     * @return
     */
-  def factorialNoLoop(n: Int) = (1 to n).reduceLeft(_ * _)
+  def factorialNoLoop(n: Int) = {
+    if (n == 0) 1
+    else if (n < 0) 0
+    else {
+      (1 to n).reduceLeft(_ * _)
+    }
+  }
 
   def main(args: Array[String]) {
     println("### Exercises 1 ###")
