@@ -40,6 +40,17 @@ object Ch12 {
     }
   }
 
+  /**
+    * Exercise 5
+    *
+    * @param fun
+    * @param inputs
+    * @return
+    */
+  def largest(fun: (Int) => Int, inputs: Seq[Int]) = {
+    inputs.map(fun).reduceLeft(_ max _)
+  }
+
   def main(args: Array[String]) {
     println("### Exercises 1 ###")
     println(values(x => x * x, -5, 5))
@@ -49,5 +60,8 @@ object Ch12 {
 
     println("\n### Exercises 3 ###")
     println(factorialNoLoop(5))
+
+    println("\n### Exercises 5 ###")
+    println(largest(x => 10 * x - x * x, 1 to 10))
   }
 }
