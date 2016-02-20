@@ -62,6 +62,16 @@ object Ch12 {
     inputs(inputs.map(fun).zipWithIndex.max._2)
   }
 
+  /**
+    * Exercises 7
+    *
+    * @param fun
+    * @return
+    */
+  def adjustToPair(fun: (Int, Int) => Int): ((Int, Int)) => Int = {
+    (pair: (Int, Int)) => fun(pair._1, pair._2)
+  }
+  
   def main(args: Array[String]) {
     println("### Exercises 1 ###")
     println(values(x => x * x, -5, 5))
@@ -77,5 +87,8 @@ object Ch12 {
 
     println("\n### Exercises 6 ###")
     println(largestAt(x => 10 * x - x * x, 1 to 10))
+
+    println("\n### Exercises 7 ###")
+    println(adjustToPair(_ * _)(9, 10))
   }
 }
