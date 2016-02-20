@@ -51,6 +51,17 @@ object Ch12 {
     inputs.map(fun).reduceLeft(_ max _)
   }
 
+  /**
+    * Exercises 6
+    *
+    * @param fun
+    * @param inputs
+    * @return
+    */
+  def largestAt(fun: (Int) => Int, inputs: Seq[Int]) = {
+    inputs(inputs.map(fun).zipWithIndex.max._2)
+  }
+
   def main(args: Array[String]) {
     println("### Exercises 1 ###")
     println(values(x => x * x, -5, 5))
@@ -63,5 +74,8 @@ object Ch12 {
 
     println("\n### Exercises 5 ###")
     println(largest(x => 10 * x - x * x, 1 to 10))
+
+    println("\n### Exercises 6 ###")
+    println(largestAt(x => 10 * x - x * x, 1 to 10))
   }
 }
