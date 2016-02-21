@@ -3,6 +3,8 @@ import scala.util.Random
 
 /**
   * Created by jimin on 2/17/16.
+  *
+  * Working with Arrays
   */
 object Ch03 {
 
