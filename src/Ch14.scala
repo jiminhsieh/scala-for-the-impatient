@@ -46,6 +46,19 @@ object Ch14 {
     case Multiple(num, item) => price(item) * BigDecimal(num)
   }
 
+  /**
+    * Exercise 5
+    *
+    * @param list
+    * @return
+    */
+  def leafSum(list: List[Any]): Int = {
+    list.map(_ match {
+      case list: List[Any] => leafSum(list)
+      case int: Int => int
+    }).sum
+  }
+
   def main(args: Array[String]) {
 
     println("### Exercises 2 ###")
@@ -69,6 +82,9 @@ object Ch14 {
       )
     )
     println(price(item))
+
+    println("\n### Exercise 5 ###")
+    println(leafSum(List(List(3, 8), 2, (5))))
 
   }
 
