@@ -59,6 +59,23 @@ object Ch14 {
     }).sum
   }
 
+  sealed abstract class BinaryTree
+
+  case class Leaf(value: Int) extends BinaryTree
+
+  case class Node(left: BinaryTree, right: BinaryTree) extends BinaryTree
+
+  /**
+    * Exercise 5
+    *
+    * @param tree
+    * @return
+    */
+  def leafSum(tree: BinaryTree): Int = tree match {
+    case Leaf(int) => int
+    case Node(left, right) => leafSum(left) + leafSum(right)
+  }
+
   def main(args: Array[String]) {
 
     println("### Exercises 2 ###")
@@ -86,6 +103,8 @@ object Ch14 {
     println("\n### Exercise 5 ###")
     println(leafSum(List(List(3, 8), 2, (5))))
 
+    println("\n### Exercise 6 ###")
+    println(leafSum(Node(Node(Leaf(3), Leaf(8)), Leaf(2))))
   }
 
 }
