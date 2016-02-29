@@ -66,7 +66,7 @@ object Ch14 {
   case class Node(left: BinaryTree, right: BinaryTree) extends BinaryTree
 
   /**
-    * Exercise 5
+    * Exercise 6
     *
     * @param tree
     * @return
