@@ -76,6 +76,20 @@ object Ch14 {
     case Node(left, right) => leafSum(left) + leafSum(right)
   }
 
+  case class Nodes(nodes: BinaryTree*) extends BinaryTree
+
+  /**
+    * ### Exercise 7 ###
+    *
+    * @param tree
+    * @return
+    */
+  def leafSumNotOnlyBinary(tree: BinaryTree): Int = tree match {
+    case Leaf(int) => int
+    case Nodes(nodes@_*) => nodes.map(leafSumNotOnlyBinary).sum
+  }
+
+
   def main(args: Array[String]) {
 
     println("### Exercises 2 ###")
@@ -105,6 +119,9 @@ object Ch14 {
 
     println("\n### Exercise 6 ###")
     println(leafSum(Node(Node(Leaf(3), Leaf(8)), Leaf(2))))
+
+    println("\n### Exercise 7 ###")
+    println(leafSumNotOnlyBinary(Nodes(Nodes(Leaf(3), Leaf(8)), Leaf(2), Nodes(Leaf(5)))))
   }
 
 }
