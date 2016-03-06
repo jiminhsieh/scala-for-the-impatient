@@ -70,7 +70,7 @@ object Ch12 {
     * @return
     */
   def adjustToPair(fun: (Int, Int) => Int): ((Int, Int)) => Int = {
-    (pair: (Int, Int)) => fun(pair._1, pair._2)
+    case (input1, input2) => fun(input1, input2)
   }
   
   def main(args: Array[String]) {
