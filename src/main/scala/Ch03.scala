@@ -8,19 +8,7 @@ import scala.util.Random
 object Ch03 {
 
   /**
-    * Exercise 01
-    *
-    * @param n
-    */
-  def insertChar(n: Int) = {
-    val array = new Array[Int](n)
-    for (i <- 0 until n) {
-      array(i) = Random.nextInt(n)
-    }
-    println(array.mkString(" "))
-  }
-
-  /**
+    * Exercise 02
     *
     * @param array
     * @return
@@ -31,7 +19,7 @@ object Ch03 {
       array(i) = array(i - 1)
       array(i - 1) = tmp
     }
-    println(array.mkString(", "))
+    array
   }
 
   /**
@@ -40,33 +28,21 @@ object Ch03 {
     * @param array
     * @return
     */
-  def swapArrayYield(array: Array[Int]) = {
+  def swapArrayYield(array: Array[Int]): Array[Int] = {
+    val newArray = Array.fill(array.size)(0)
     for (i <- 0 until array.size) yield {
       if (i % 2 == 1) {
-        val tmp = array(i)
-        array(i) = array(i - 1)
-        array(i - 1) = tmp
+        newArray(i) = array(i - 1)
+        newArray(i - 1) = array(i)
+      } else if (i == array.length - 1 && i % 2 == 0) {
+        newArray(i) = array(i)
       }
     }
-    array
+    newArray
   }
 
-  def main(args: Array[String]) {
-
-    println("### Exercise 01 ###")
-    insertChar(9)
-
-    println("\n### Exercise 02 ###")
-    swapArray(Array(1, 2, 3, 4, 5))
-
-    println("\n### Exercise 03 ###")
-    println(swapArrayYield(Array(1, 2, 3, 4, 5)).mkString(", "))
-
-    println("\n### Exercise 05 ###")
-    val array = Array(1, 2, 3, 4, 5)
-    var sum: Int = 0;
-    array.foreach(sum += _)
-    val avg = sum / array.size
-    println(avg)
+  def average(array: Array[Double]): Double = {
+    array.sum / array.size
   }
+
 }
