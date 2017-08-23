@@ -44,24 +44,4 @@ object Ch02 {
     result.toString ++ "L"
   }
 
-  def main(args: Array[String]) {
-
-    println("### Exercise 1 ###")
-    println(signum(0))
-    println(signum(-99))
-    println(signum(100))
-
-    println("\n### Exercise 4 ###")
-    for (i <- 10 to 0 by -1) {
-      println(i)
-    }
-
-    println("\n### Exercise 5 ###")
-    countdown(11)
-
-    println("\n### Exercise 6 ###")
-    println(stringToUnicode("Hello"))
-
-  }
-
 }
